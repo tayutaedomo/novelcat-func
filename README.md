@@ -38,3 +38,9 @@ settings.json for Visual Studio Code
   ]
 }
 ```
+
+## Local Development
+
+```
+$ functions-framework --target hello_get --debug
+```
