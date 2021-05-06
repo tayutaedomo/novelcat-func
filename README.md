@@ -39,8 +39,17 @@ settings.json for Visual Studio Code
 }
 ```
 
+### Download .h5
+
+```
+$ cd novelcat-func
+$ curl -L -o "etc/model/category_v1.0.0.h5" "https://www.dropbox.com/s/obhtl90tw3xqt36/category_v1.0.0.h5?dl=0"
+$ mv etc/model/category_v1.0.0.h5 etc/model/category.h5
+```
+
 ## Local Development
 
 ```
+$ cd novelcat-func
 $ functions-framework --target hello_get --debug
 ```
