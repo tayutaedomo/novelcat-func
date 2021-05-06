@@ -1,6 +1,8 @@
 # import base64
 from io import BytesIO
 from PIL import Image
+import numpy as np
+import json
 
 
 def hello_get(request):
@@ -38,14 +40,18 @@ def predict_category(request):
         # local['file_base64'] = str(base64.b64encode(content), 'utf-8')
 
         img = Image.open(BytesIO(content)).convert('RGB')
-        print('img', img)
-        # img_resize = img.resize((229, 229))
-        # img_np = np.asarray(img_resize) / 255.0
-        # img_reshape = img_np.reshape(1, 229, 229, 3)
+        # print('img', img)
+        img_resize = img.resize((229, 229))
+        img_np = np.asarray(img_resize) / 255.0
+        img_reshape = img_np.reshape(1, 229, 229, 3)
+        print('img.shape', img_reshape.shape)
 
     # x = img_reshape
     # y = np.argmax(model.predict(x))
     # y_proba = model.predict_proba(x)
     # y_proba = np.round((y_proba[0] * 100), 5)
+    # local['predicted'] = True
+    # local['y'] = y
+    # local['y_proba'] = y_proba
 
-    return 'OK'
+    return json.dumps(local), 200, {'Content-Type': 'application/json'}
