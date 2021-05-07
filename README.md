@@ -58,5 +58,5 @@ $ functions-framework --target hello_get --debug
 
 ```
 $ cd novelcat-func
-$ gcloud functions deploy predict_category --region asia-northeast1 --runtime python37 --memory 1024MB --timeout 120 --trigger-http --allow-unauthenticated
+$ gcloud functions deploy predict_category --region asia-northeast1 --runtime python37 --memory 1024MB --timeout 120 --max-instances 1 --trigger-http --allow-unauthenticated
 ```
