@@ -53,3 +53,10 @@ $ mv etc/model/category_v1.0.0.h5 etc/model/category.h5
 $ cd novelcat-func
 $ functions-framework --target hello_get --debug
 ```
+
+## Deploy to Cloud Functions
+
+```
+$ cd novelcat-func
+$ gcloud functions deploy predict_category --region asia-northeast1 --runtime python37 --memory 1024MB --timeout 120 --trigger-http --allow-unauthenticated
+```
